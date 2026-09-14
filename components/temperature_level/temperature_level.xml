@@ -1,0 +1,32 @@
+<component>
+	<previews>
+		<preview width="350" height="350" style_bg_color="0xeee" />
+	</previews>
+
+	<styles>
+		<style name="style_temp_hot" text_color="0xff0000" align="right_mid" />
+		<style name="style_temp_cold" text_color="0x0000ff" align="right_mid" />
+	</styles>
+
+	<view extends="lv_obj" height="350" width="350">
+		<!-- Add widgets/components here -->
+		<column pad="#space_md">
+			<panel flex_flow="column">
+				<lv_label text="Temperaure: " />
+				<row gap="#space_md" vertical_align="center" width="100%">
+					<h3 bind_text="subject_temperature_level" bind_text-fmt="%d°C" />
+					<container grow="1" />
+					<text text="TOO HOT">
+						<lv_obj-bind_flag_if_lt subject="subject_temperature_level" flag="hidden" ref_value="90" />
+						<style name="style_temp_hot" />
+					</text>
+					<text text="TOO COLD">
+						<lv_obj-bind_flag_if_gt subject="subject_temperature_level" flag="hidden" ref_value="10" />
+						<style name="style_temp_cold" />
+					</text>
+				</row>
+				<slider bind_value="subject_temperature_level" />
+			</panel>
+		</column>
+	</view>
+</component>

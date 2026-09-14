@@ -1,0 +1,29 @@
+<component>
+	<previews>
+		<preview width="350" height="450" style_bg_color="0xeee" />
+	</previews>
+
+	<view extends="lv_obj" height="450" width="350">
+		<style name="style_screen_light" />
+		<bind_style name="style_screen_dark" subject="subject_theme_dark" ref_value="1" />
+		<!-- Add widgets/components here -->
+		<column pad="#space_md" gap="#space_md">
+			<panel flex_flow="column" width="160">
+				<lv_label text="Temperature: " />
+				<h3 text="25" />
+			</panel>
+			<panel flex_flow="column" width="160">
+				<lv_label text="Battery Level: " />
+				<h3 bind_text="subject_battery_level" />
+			</panel>
+			<panel flex_flow="column" width="160">
+				<lv_label text="Speed: " />
+				<h3 text="66" />
+			</panel>
+			<panel flex_flow="column" width="160">
+				<lv_label text="Dark mode: " />
+				<switch />
+			</panel>
+		</column>
+	</view>
+</component>
